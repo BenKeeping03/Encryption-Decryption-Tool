@@ -1,4 +1,5 @@
 new_phrase = ""
+decrypted_phrase = ""
 def phraseinput():
     try:
         global phrase
@@ -19,15 +20,15 @@ def shiftinput():
 def encrypt():
     for x in phrase:
         if(x==" "):
-            newnumber = ord(x)
+            newletter = ord(x)
         else:
-            newnumber = ord(x) + shift
+            newletter = ord(x) + shift
         global new_phrase
-        new_phrase += chr(newnumber)
+        new_phrase += chr(newletter)
     print(new_phrase)
 
 def decision():
-    choice = str(input("Type 1 to Decrypt: "))
+    choice = int(input("Type 1 to Decrypt: "))
     if(choice == 1):
         print("Ready to decrypt")
         decrypt()
@@ -36,11 +37,42 @@ def decision():
 
 def decrypt():
     try:
-        global phrase
-        phrase = str(input("Input phrase to Decrypt: "))
-        print(phrase)
+        global decryptphrase
+        decryptphrase = str(input("Input phrase to Decrypt: "))
+        print(decryptphrase)
+        shiftdecrypt()
     except:
         print("Enter a valid phrase (only letters)")
+        decrypt()
+    
+
+def shiftdecrypt():
+    try:
+        global shiftdecryptnumber
+        shiftdecryptnumber = int(input("Do you know the shift number? If so type it here: "))
+        print(shiftdecryptnumber)
+        decryption()
+    except:
+        print("Enter a number only")
+        shiftdecrypt()
+
+def decryption():
+    for x in decryptphrase:
+        if(x==" "):
+            decryptedletter = ord(x)
+        else:
+            decryptedletter = ord(x) - shiftdecryptnumber
+        global decrypted_phrase
+        decrypted_phrase += chr(decryptedletter)
+    print(decrypted_phrase)
+    correct = str(input("Does this phrase look correct? Type either yes or no (Case Sensitive)"))
+    if(correct == "yes"):
+        print("Hooray phrase decrypted!")
+    elif(correct == "no"):
+        print("Lets try more shift keys!")
+    else:
+        print("Enter either yes or no")
+        
 
 
 phraseinput()
