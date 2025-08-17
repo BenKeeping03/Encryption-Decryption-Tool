@@ -1,17 +1,33 @@
 new_phrase = ""
 decrypted_phrase = ""
+
+def choice():
+    option = str(input("Type 1 for Encrypt, 2 for Decrypt: "))
+    if(option == "1"):
+        #encrypt phase
+        phraseinput()
+        encrypt()
+    elif(option == "2"):
+        #decrypt phase
+        decrypt()
+    else:
+        print("You input an invalid option, try again!")
+        choice()
+
+
 def phraseinput():
     try:
         global phrase
         phrase = str(input("Input phrase to encrypt: "))
         print(phrase)
+        shiftinput()
     except:
         print("Enter a valid phrase (only letters)")
 
 def shiftinput():
     try:
         global shift
-        shift = int(input("Input shift amount: "))
+        shift = (int(input("Input shift amount: ")))%26
         print(shift)
     except:
         print("Enter a number only")
@@ -22,18 +38,18 @@ def encrypt():
         if(x==" "):
             newletter = ord(x)
         else:
-            newletter = ord(x) + shift
+            if((ord(x)+shift)>122):
+                difference = 122 - ord(x)
+                new = shift - difference
+                wrapped = 96 + new
+                newletter = wrapped
+            else:
+                newletter = ord(x) + shift
+
         global new_phrase
         new_phrase += chr(newletter)
     print(new_phrase)
 
-def decision():
-    choice = int(input("Type 1 to Decrypt: "))
-    if(choice == 1):
-        print("Ready to decrypt")
-        decrypt()
-    else:
-        (print("Thank you for encrypting"))
 
 def decrypt():
     try:
@@ -73,9 +89,4 @@ def decryption():
     else:
         print("Enter either yes or no")
         
-
-
-phraseinput()
-shiftinput()
-encrypt()
-decision()
+choice()
