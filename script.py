@@ -93,7 +93,7 @@ def decryption():
 
 def shiftguesser():
     print("lets do this")
-    phrase = "olssv ibkkf ovd hyl fvb avkhf"
+    phrase = "vnnm vn jg cqn yjbs"
     with open("wordlist.txt") as f:
         words = [line.strip() for line in f]
     i = 0
