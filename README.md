@@ -29,3 +29,6 @@ Future cipher implementations and their deadlines:
    ```bash
    git clone https://github.com/yourusername/Encryption-Decryption-Tool.git
    cd Encryption-Decryption-Tool
+2. **Run the Script:**
+   ```bash
+   python script.py
