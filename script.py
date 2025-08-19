@@ -93,7 +93,7 @@ def decryption():
 
 def shiftguesser():
     print("lets do this")
-    phrase = "olssv ibbkf ovc hyl fvb avkhf"
+    phrase = "olssv ibkkf ovd hyl fvb avkhf"
     with open("wordlist.txt") as f:
         words = [line.strip() for line in f]
     i = 0
@@ -105,8 +105,15 @@ def shiftguesser():
                 decryptedletter = ord(x)
                 decrypted_phrase += chr(decryptedletter)
             else:
-                decryptedletter = ord(x) - i
-                decrypted_phrase += chr(decryptedletter)
+                if(ord(x)-i < 97):
+                    num1 = ord(x) - 97
+                    
+                    num3 = i - num1
+                    decryptedletter = 123 - num3 
+                    decrypted_phrase += chr(decryptedletter)
+                else:
+                    decryptedletter = ord(x) - i
+                    decrypted_phrase += chr(decryptedletter)
             
         newarray = decrypted_phrase.split() 
             
