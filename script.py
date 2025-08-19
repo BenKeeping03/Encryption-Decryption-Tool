@@ -65,7 +65,7 @@ def decrypt():
 def shiftdecrypt():
     try:
         global shiftdecryptnumber
-        shiftdecryptnumber = int(input("Do you know the shift number? If so type it here: "))
+        shiftdecryptnumber = (int(input("Do you know the shift number? If so type it here: ")))%26
         print(shiftdecryptnumber)
         decryption()
     except:
@@ -86,7 +86,42 @@ def decryption():
         print("Hooray phrase decrypted!")
     elif(correct == "no"):
         print("Lets try more shift keys!")
+        shiftguesser()
     else:
         print("Enter either yes or no")
         
-choice()
+
+def shiftguesser():
+    print("lets do this")
+    phrase = "olssv ibbkf ovc hyl fvb avkhf"
+    with open("wordlist.txt") as f:
+        words = [line.strip() for line in f]
+    i = 0
+    
+    while i < 26:
+        decrypted_phrase = ""
+        for x in phrase:
+            if(x==" "):
+                decryptedletter = ord(x)
+                decrypted_phrase += chr(decryptedletter)
+            else:
+                decryptedletter = ord(x) - i
+                decrypted_phrase += chr(decryptedletter)
+            
+        newarray = decrypted_phrase.split() 
+            
+        for x in newarray:
+            if x in words:
+                print("This phrase was shifted by: " + str(i))
+                print("Your decrypted phrase is: " + decrypted_phrase)
+                break
+                
+           
+        i += 1
+            
+    
+    
+        
+    
+shiftguesser()
+#choice()
