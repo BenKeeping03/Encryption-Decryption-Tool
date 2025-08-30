@@ -8,6 +8,9 @@ def choice():
         atbash_encrypt()
     if option  == 2:
         atbash_decrypt()
+    else:
+        print("Enter a Valid Input: ")
+        choice()
 
 def atbash_encrypt():
     global encrypted_phrase
