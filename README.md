@@ -15,6 +15,7 @@ A **Python-based toolkit** for experimenting with classical ciphers. Currently s
 
 Future cipher implementations and their deadlines:  
 
+- [X] 🔑 **Caesar Cipher** – *Deadline: 24/08/2025*
 - [X] 🔄 **Atbash Cipher** – *Deadline: 31/08/2025*  
 - [X] ✖️ **Affine Cipher** – *Deadline: 07/09/2025*  
 - [ ] 🔤 **Vigenère Cipher** – *Deadline: 14/09/2025*  
