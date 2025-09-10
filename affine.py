@@ -4,10 +4,8 @@ decrypted_phrase = ""
 def choice():
     option = int(input("Enter 1 to Encrypt, 2 to Decrypt: "))
     if option == 1:
-        print("op1")
         affine_encrypt()
     elif option == 2:
-        print("op2")
         affine_decrypt()
     else:
         print("Select a valid input (1 or 2)")
